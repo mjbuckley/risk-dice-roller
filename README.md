@@ -1,3 +1,3 @@
-# Trillion Dollar app
+# Risk Dice Roller
 
-App description will go here.
+An app to speed up the dice rolling process of the Risk board game.
