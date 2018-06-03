@@ -4,7 +4,7 @@
 - Remove PWA stuff before initial build.
 - Decide on browsers to support. Install core-js for pollyfills if needed. Be sure not to leave this until the end because its much easier to to this from the start.
 - Decide about using prop-types (is that still being used?), and flow/typescript.
-- Do testing.
+- Add tests, where to place test files (own directory or next to files they are testing)?
 
 ## Notes
 
