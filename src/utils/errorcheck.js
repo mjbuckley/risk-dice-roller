@@ -25,6 +25,7 @@
   }
 }
 
+
 // Maps form/state id to error description for that item
 const getErrorDescripion = {
   "attackArmies": ["attackArmies", "The number of attack armies must be a whole number greater than or equal to 2."],
@@ -34,7 +35,6 @@ const getErrorDescripion = {
   "stopNum": ["stopNum", "Stop number must be a whole number that is less than the current number of attack armies and greater than 0."],
   "stopDifferential": ["stopDifferential", "The stop differential must be an integer, and it must be less than the current differential."]
 };
-
 
 
 
@@ -109,14 +109,19 @@ functionCalledWhenButtonClicked = () => {
   let errors = validateForm();
 
   if (errors.length > 0) {
-    // Somehow display them to user. Do not continue with roll. Maybe update an error property in state to have them be displayed?
-    return errors;
+    // Don't proceed with roll. Add the errors in the array to the Redux state.
   }
 
   // At this point we can proceed with the roll process becuase everything is valid.
   // roll function here
 };
 
+
+// Idea for keeping track of history
+// initial situation (num armies for each)
+// results after first roll (roll results, num armies for each)
+// results after second (roll results, num armies for each)
+// final result (roll results, num armies for each, reason for stop?
 
 
 // I'm thinking a recursive function like below. Would be called with the validated values from state. Each roll round will return an update object in the same form as the state (but not changing state itself). The can continue function takes that object and determines whether roll can continue. If can't continue decide how to communicate that message and display.
@@ -125,30 +130,32 @@ functionCalledWhenButtonClicked = () => {
 rollTillStop = (obj) => {
   let result = roll();
 
+
+
   // Here I need to take info from roll and 1) adjust obj with new values, 2) determine if stop criteria have been met, 3) determine if roll numbers need to be adjusted down, 4) update history. Then I can continue with the recursive part.
 
-  if (canContinue(newObj)) {
-    return rollTillStop(newObj);
+  if (cannotContinue(newObj)) {
+    // The value returned is a string explaining why not. Handle as needed.
   } else {
-    return newObj;
+    return rollTillStop(newObj);
   }
 }
 // Perhaps roll() can return an array with something like [true/false, {}, message(optional)];
 
 
 // Returns an object with the roll numbers and differentials for attack/defend
-roll () => {
+roll (attackNum, defendNum) => {
   let attackRolls = [];
   let defendRolls = [];
   let attackResult = 0;
   let defendResult = 0;
 
-  for (let i = 1; i <=attackNum; i++) {
+  for (let i = 1; i <= attackNum; i++) {
     attackRolls.push[Math.floor(Math.random() * 7)];
   }
   attackRolls.sort((a, b) => a - b); // function ensures sorts by number and not string value
 
-  for (let i = 1; i <=defendNum; i++) {
+  for (let i = 1; i <= defendNum; i++) {
     defendRolls.push[Math.floor(Math.random() * 7)];
   }
   defendRolls.sort((a, b) => a - b);
@@ -188,28 +195,65 @@ rollResults: {
 
 
 // Is game over?
-hasSomeoneWon () => {
+// attackHasWon = () => {
+//   if (defendArmies === 0) {
+//     return true;
+//   };
+//
+//   return false;
+// };
+//
+// notEnoughToAttack = () => {
+//   if (attackArmies === 1) {
+//     return true;
+//   }
+//
+//   return false;
+// }
+//
+//
+// atStopNum () => {
+//   if (attackArmies === stopNum) {
+//     return true;
+//   };
+//   return false;
+// };
+//
+// atStopDifferential () => {
+//   if (attackArmies - defendArmies === stopDifferential) {
+//     return true;
+//   };
+//   return false;
+// };
+
+// If we cannot continue it returns the reason why as a string. Otherwise returns false. Note the in some cases the may be multiple reasons why we cannot continue but in such a case I only return the most useful reason.
+cannotContinue = () => {
+
+  // Has attack won?
   if (defendArmies === 0) {
-    return true;
+    return "Attack has won.";
   };
 
-  if ()
-};
+  // Does attack have enough armie to continue?
+  if (attackArmies === 1) {
+    return "Attack only has 1 remaining army and cannot continue attacking.";
+  };
 
-
-atStopNum () => {
+  // Are we at stopNum?
   if (attackArmies === stopNum) {
-    return true;
+    return "The stop number has been reached.";
   };
+
+  // Are we at the stop differential
+  if (attackArmies - defendArmies === stopDifferential) {
+    return "The stop differential has been reached";
+  };
+
   return false;
+
 };
 
-atStopDifferential () => {
-  if (attackArmies - defendArmies === stopDifferential) {
-    return true;
-  };
-  return false;
-};
+
 
 // NOT FINISHED, NOT SURE IF CORRECT
 getAttackNum = () => {
