@@ -1,5 +1,11 @@
 # Todo
 
+
+- July 20:
+  - I use attack/defend RollNum and Num. Decide on one and stick with it. (mostly in errorcheck)
+  - Double check all my functions in errorcheck. Then clean up and link together properly with everything else.
+
+
 - Look over City Weather App notes to see if there's anything important from last time that I might be forgetting.
 - Remove PWA stuff before initial build.
 - Decide on browsers to support. Install core-js for pollyfills if needed. Be sure not to leave this until the end because its much easier to to this from the start.
