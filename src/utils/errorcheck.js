@@ -1,35 +1,7 @@
-// SAMPLE REDUX STATE
-{
-  userRollInfo: {
-    "attackArmies": 10,
-    "defendArmies": 5,
-    "attackRollNum": 3,
-    "defendRollNum": 2,
-    "stopNum": '',
-    "stopDifferential": ''
-  },
-  "errorMessages": {
-    "attackArmies": '',
-    "defendArmies": '',
-    "attackRollNum": '',
-    "defendRollNum": '',
-    "stopNum": '',
-    "stopDifferential": ''
-  },
-  "results" {
-    "history": [].
-    "attack": 4,
-    "defense": 0,
-    "notes": ''
-    // probably need to add a few things
-  }
-}
-
-
 functionCalledWhenButtonClicked = () => {
 
   // convert user submission to useable form
-  let parsedSubmission = parseSubmission(state.userRollInfo);
+  let parsedSubmission = convertSubmission(state.userRollInfo);
 
   // Check for errors in submission. Returns an array containing the errors, otherwise an empty array.
   let errors = validateSubmission(parsedSubmission);
@@ -154,79 +126,3 @@ getDefendNum (defendArmies, defendRollNum) => {
   }
   return 1;
 };
-
-
-
-
-
-
-// Example of object when passed in to rollTillStop for the first time
-{
-  "attackArmies": 10,
-  "defendArmies": 5,
-  "attackRollNum": 3,
-  "defendRollNum": 2,
-  "stopNum": '',
-  "stopDifferential": ''
-  "lastRoll": {
-    attackRolls: [],
-    defendRolls: [],
-    attackResult: 0,
-    defendResult: 0
-  },
-  "message": "",
-  "history": []
-}
-
-// suppose we roll and attack looses 2. The new object would look like this:
-{
-  "attackArmies": 8,
-  "defendArmies": 5,
-  "attackRollNum": 3,
-  "defendRollNum": 2,
-  "stopNum": '',
-  "stopDifferential": ''
-  "lastRoll": {"attackRolls": [2, 1, 1], "defendRolls": [6, 5], "attackResult": -2, "defendResult": 0},
-  "message": ""
-  "history": [
-    {
-      "attackArmies": 10,
-      "defendArmies": 5,
-      attackRolls: [],
-      defendRolls: [],
-      attackResult: 0,
-      defendResult: 0
-    }
-  ]
-}
-
-// then if each loose one:
-
-{
-  "attackArmies": 7,
-  "defendArmies": 4,
-  "attackRollNum": 3,
-  "defendRollNum": 2,
-  "stopNum": '',
-  "stopDifferential": ''
-  "lastRoll": {"attackRolls": [6, 1, 1], "defendRolls": [5, 5], "attackResult": -1, "defendResult": -1},
-  "message": ""
-  "history": [
-    {
-      "attackArmies": 10,
-      "defendArmies": 5,
-      attackRolls: [],
-      defendRolls: [],
-      attackResult: 0,
-      defendResult: 0
-    },
-    {
-      "attackArmies": 8,
-      "defendArmies": 5,
-      attackRolls: [2, 1, 1],
-      defendRolls: [6, 5],
-      attackResult: -2,
-      defendResult: 0
-    }
-  ]
-}
