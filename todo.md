@@ -1,9 +1,8 @@
 # Todo
 
+- Dice rolling JS logic is done (there might be errors to find, but structure is done). Now I need to integrate that into Redux/React.
+- I mostly fixed my usage to standardize on attack/defend RollNum, but I think there is still some improper usage in some react components (but util stuff should be good).
 
-- July 20:
-  - I mostly fixed by useage to standardize on attack/defend RollNum, but I think there is still some improper useage in some react components (but util stuff should be good).
-  - Double check all my functions in errorcheck. Then clean up and link together properly with everything else.
 
 
 - Look over City Weather App notes to see if there's anything important from last time that I might be forgetting.
