@@ -9,11 +9,11 @@
  * {"attackRollNum": 3, "defendRollNum": NaN, "stopNum": ''}
  */
 
-convertSubmission = (userRollInfo) => {
+convertSubmission = (rollInfo) => {
 
-  let convertedRollInfo = Object.assign({}, ...Object.keys(userRollInfo).map(function(key) {
+  let convertedRollInfo = Object.assign({}, ...Object.keys(rollInfo).map(function(key) {
 
-    let convertedValue = ((key === "stopNum" || key === "stopDifferential") && userRollInfo[key].trim() === '') ? '' : parseFloat(userRollInfo[key]);
+    let convertedValue = ((key === "stopNum" || key === "stopDifferential") && rollInfo[key].trim() === '') ? '' : parseFloat(rollInfo[key]);
 
     return { [key]: convertedValue };
     }

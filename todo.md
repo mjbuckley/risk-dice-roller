@@ -2,7 +2,7 @@
 
 
 - July 20:
-  - I use attack/defend RollNum and Num. Decide on one and stick with it. (mostly in errorcheck)
+  - I mostly fixed by useage to standardize on attack/defend RollNum, but I think there is still some improper useage in some react components (but util stuff should be good).
   - Double check all my functions in errorcheck. Then clean up and link together properly with everything else.
 
 
@@ -27,6 +27,7 @@ to the scripts section of the package.json. To use, run "npm run build" then "np
 
 
 SAMPLE REDUX STATE
+
 {
   userRollInfo: {
     "attackArmies": 10,
@@ -48,7 +49,7 @@ SAMPLE REDUX STATE
     "history": [].
     "attack": 4,
     "defense": 0,
-    "notes": ''
+    "message": ''
   }
 }
 
