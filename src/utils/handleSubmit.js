@@ -1,6 +1,7 @@
 import convertSubmission from './convertSubmission.js';
 import validateSubmission from './validateSubmission.js';
 import rollTillStop from './rollTillStop.js';
+import { updateErrors, updateResults } from '../actions';
 
 /**
  * handleSubmit() takes the dice rolling info submitted by the user and either returns any errors
@@ -18,7 +19,7 @@ handleSubmit = (userRollInfo) => {
 
   // If there are errors we need to abort and return errors to the user
   if (errors.length > 0) {
-    // Somehow add the errors in the array to the Redux state. Trigger and update.
+    return updateErrors({errors});
   }
 
   /** At this point we know the submission is valid and can proceed. The rolling process is handled
@@ -38,7 +39,7 @@ handleSubmit = (userRollInfo) => {
   // This returns a message and roll history.
   let result = rollTillStop(rollInfo);
 
-  // HERE IS NEED TO UPDATE STATE SOMEHOW WITH MESSAGE AND HISTORY.
+  return updateResults({"status": "success", results);
 };
 
 export default handleSubmit;

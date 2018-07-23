@@ -24,16 +24,16 @@ const RollInfo  = () => {
         <input
           name="attackArmies"
           type="number"
-          value={props.attackArmies}
+          value={props.userRollInfo.attackArmies}
           onChange={handleChange} />
       </label>
 
       <label>
         Number of dice to roll (1, 2, or 3)
         <input
-          name="desiredAttackNum"
+          name="attackRollNum"
           type="number"
-          value={props.desiredAttackNum}
+          value={props.userRollInfo.attackRollNum}
           onChange={handleChange} />
       </label>
 
@@ -42,7 +42,7 @@ const RollInfo  = () => {
         <input
           name="stopNum"
           type="number"
-          value={props.stopNum}
+          value={props.userRollInfo.stopNum}
           onChange={handleChange} />
       </label>
 
@@ -51,7 +51,7 @@ const RollInfo  = () => {
         <input
           name="stopDifferential"
           type="number"
-          value={props.stopDifferential}
+          value={props.userRollInfo.stopDifferential}
           onChange={handleChange} />
       </label>
 
@@ -64,16 +64,16 @@ const RollInfo  = () => {
         <input
           name="defendArmies"
           type="number"
-          value={props.defendArmies}
+          value={props.userRollInfo.defendArmies}
           onChange={handlChange} />
       </label>
 
       <label>
         Number of dice to roll (1 or 2)
         <input
-          name="desiredDefendNum"
+          name="defendRollNum"
           type="number"
-          value={props.desiredDefendNum}
+          value={props.userRollInfo.defendRollNum}
           onChange={handleChange} />
       </label>
 

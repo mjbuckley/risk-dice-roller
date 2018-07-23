@@ -1,5 +1,8 @@
 import React from 'react';
 import '../css/App.css';
+import ErrorMessages from '../containers/ErrorMessages.js';
+import RollInfo from '../containers/RollForm.js';
+import Results from '../containers/Results.js';
 
 const App = () => (
   <div className="App">
@@ -9,6 +12,11 @@ const App = () => (
     <p className="App-intro">
       An app to speed up the process of rolling dice in the Risk board game.
     </p>
+
+    <ErrorMessages />
+    <RollForm />
+    <Results />
+
   </div>
 );
 
