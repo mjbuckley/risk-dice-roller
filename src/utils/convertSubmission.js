@@ -9,17 +9,36 @@
  * {"attackRollNum": 3, "defendRollNum": NaN, "stopNum": ''}
  */
 
-convertSubmission = (rollInfo) => {
+// const convertSubmission = (rollInfo) => {
+//
+//   let convertedRollInfo = Object.assign({}, ...Object.keys(rollInfo).map(function(key) {
+//
+//     let convertedValue = ((key === "stopNum" || key === "stopDifferential") && rollInfo[key].trim() === '') ? '' : parseFloat(rollInfo[key]);
+//
+//     return { [key]: convertedValue };
+//   }));
+//
+//   return convertedRollInfo;
+// };
+//
+// export default convertSubmission;
 
-  let convertedRollInfo = Object.assign({}, ...Object.keys(rollInfo).map(function(key) {
+
+const convertSubmission = (rollInfo) => {
+
+
+  let temp = Object.keys(rollInfo).map(function(key) {
 
     let convertedValue = ((key === "stopNum" || key === "stopDifferential") && rollInfo[key].trim() === '') ? '' : parseFloat(rollInfo[key]);
 
     return { [key]: convertedValue };
-    }
-  );
+  });
+
+
+
+  let convertedRollInfo = Object.assign({}, ...temp);
 
   return convertedRollInfo;
-}
+};
 
-export defualt convertSubmission;
+export default convertSubmission;

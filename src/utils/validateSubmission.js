@@ -9,7 +9,7 @@
  * the error. See getErrorDescripion below for an example.
  */
 
-validateSubmission = (rollInfo) => {
+const validateSubmission = (rollInfo) => {
 
   // Object containing descriptions for the possible errors.
   const getErrorDescripion = {
@@ -25,12 +25,12 @@ validateSubmission = (rollInfo) => {
 
   // 1ST ROUND OF ERROR CHECKS. Make sure all values are integers or empty strings. Note that
   // convertSubmission() has already ensured that empty strings only exist in allowable places.
-  Object.keys(rollInfo).forEach(key) {
+  Object.keys(rollInfo).forEach((key) => {
     if (rollInfo[key] !== '' &&
     (isNaN(rollInfo[key]) || !Number.isInteger(rollInfo[key]))) {
       errors.push(getErrorDescripion[key]);
     }
-  }
+  });
 
   // Return if any errors are found. Otherise continue with 2nd round.
   if (errors.length > 0) {
@@ -67,7 +67,7 @@ validateSubmission = (rollInfo) => {
   };
 
   // If used, stopNum must be 1 or greater and less than the current number of attack armies.
-  if (rollInfo["stopNum"] && (rollInfo["stopNum"] < 1 || rollInfo["stopNum"] >= rollInfo["attackArmies"]) {
+  if (rollInfo["stopNum"] && (rollInfo["stopNum"] < 1 || rollInfo["stopNum"] >= rollInfo["attackArmies"])) {
     errors.push(getErrorDescripion["stopNum"]);
   };
 
@@ -80,4 +80,4 @@ validateSubmission = (rollInfo) => {
   return errors;
 };
 
-export defualt validateSubmission;
+export default validateSubmission;

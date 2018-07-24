@@ -25,10 +25,14 @@ import getDefendRollNum from './getDefendRollNum.js';
  * 2) "history": []
  * 3) "message": ""
  */
-rollTillStop = (rollInfo) => {
+const rollTillStop = (rollInfo) => {
 
   // Add current status info to history before it is updated with new roll info
-  let newHistoryObj = {rollInfo.attackArmies, rollInfo.defendArmies, ...rollInfo.lastRoll};
+  let newHistoryObj = {
+    'attackArmies':rollInfo.attackArmies,
+    'defendArmies': rollInfo.defendArmies,
+    ...rollInfo.lastRoll
+  };
   rollInfo.history.push(newHistoryObj);
 
 
@@ -49,11 +53,11 @@ rollTillStop = (rollInfo) => {
   if (mustStop) {
 
     rollInfo.mesage = mustStop;
-    return {rollInfo.message, rollInfo.history};
+    return {'message': rollInfo.message, 'history': rollInfo.history};
   } else {
 
     // Update attack and defend roll nums (might need to be adjusted down based on new army numbers).
-    rollInfo.attackRollNum = getAttackRollNum(rollInfo.attackArmies, rollInfo.attackRollNum);
+    rollInfo.attackRollNum = getAttackRollNum(rollInfo.attackArmies, rollInfo.attackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
     rollInfo.defendRollNum = getDefendRollNum(rollInfo.defendArmies, rollInfo.defendRollNum);
 
     // Roll again
@@ -61,4 +65,4 @@ rollTillStop = (rollInfo) => {
   }
 }
 
-export defualt rollTillStop;
+export default rollTillStop;

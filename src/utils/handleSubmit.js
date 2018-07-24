@@ -8,7 +8,7 @@ import { updateErrors, updateResults } from '../actions';
  * in the the form submission to the user or handles all of the rolling and returns the results.
  * It takes an object as it argument that corresponds to the userRollInfo property of the Redux state.
  */
-handleSubmit = (userRollInfo) => {
+const handleSubmit = (userRollInfo) => {
 
   // convert user submission to useable form
   let rollInfo = convertSubmission(userRollInfo);
@@ -39,7 +39,7 @@ handleSubmit = (userRollInfo) => {
   // This returns a message and roll history.
   let result = rollTillStop(rollInfo);
 
-  return updateResults({"status": "success", results);
+  return updateResults({"status": "success", ...result});
 };
 
 export default handleSubmit;

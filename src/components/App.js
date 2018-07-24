@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/App.css';
 import ErrorMessages from '../containers/ErrorMessages.js';
-import RollInfo from '../containers/RollForm.js';
+import RollForm from '../containers/RollForm.js';
 import Results from '../containers/Results.js';
 
 const App = () => (

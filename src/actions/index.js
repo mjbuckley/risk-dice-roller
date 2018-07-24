@@ -13,3 +13,8 @@ export const updateErrors = errors => ({
   'type': 'UPDATE_ERRORS',
   errors
 });
+
+// Not using this yet but will add later
+export const resetFrom = () => ({
+  'type': 'RESET_FORM'
+});

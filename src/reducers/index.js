@@ -13,7 +13,7 @@ const defaultUserRollInfo = {
 function userRollInfo(state = defaultUserRollInfo, action) {
   switch (action.type) {
     case 'UPDATE_USER_ROLL_INFO':
-      return {...state.userRollInfo, action.rollInfo};
+      return {...state.userRollInfo, ...action.rollInfo};
     default:
       return state;
   }
@@ -45,6 +45,8 @@ function results(state = defaultResults, action) {
         'rollResults': {},
         'errors': action.errors
       };
+    case 'RESET_FORM':
+      return defaultResults;
     default:
       return state;
   }
@@ -54,7 +56,7 @@ const rootReducer = combineReducers({
   userRollInfo,
   results
 });
-​
+
 export default rootReducer;
 
 

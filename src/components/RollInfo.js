@@ -1,22 +1,21 @@
 // VERY INCOMPLETE BUT AN IDEA OF WHAT TO DO
 import React from 'react';
 
-const RollInfo  = () => {
+const RollInfo = (props) => {
 
-  handleChange(event) {
+  const handleChange = event => {
     props.handleChange({
       [event.target.name]: event.target.value
     });
   };
 
-  onSubmit= e => {
+  const onSubmit = e => {
     e.preventDefault();
-
-    // Dispatch something here. Don't need to send values because they are already there because of handleChange, but need to trigger validation check and rolling.
-  }};
+    props.onSubmit(props.userRollInfo);
+  };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
 
       <h2>ATTACK</h2>
       <label>
@@ -65,7 +64,7 @@ const RollInfo  = () => {
           name="defendArmies"
           type="number"
           value={props.userRollInfo.defendArmies}
-          onChange={handlChange} />
+          onChange={handleChange} />
       </label>
 
       <label>

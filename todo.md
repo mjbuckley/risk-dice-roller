@@ -1,5 +1,7 @@
 # Todo
 
+- clean up params in getAttackRollNum() inside of rollTillStop().
+- clean up convertSubmission
 - I've changged handleSubmit.js to return an update or error action (but not dispatch it). This is the right approach, but I need to make sure the form I'm returning them in matches what is expected. Right now they are not.
 - Dice rolling JS logic is done (there might be errors to find, but structure is done). Now I need to integrate that into Redux/React.
 - I mostly fixed my usage to standardize on attack/defend RollNum, but I think there is still some improper usage in some react components (but util stuff should be good).

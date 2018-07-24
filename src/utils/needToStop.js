@@ -3,7 +3,7 @@
  * numbers, the game rules, and the stop criteria. Returns false if we don't need to stop, returns
  * a string message with an explination if we do need to stop.
  */
-needToStop = (rollInfo) => {
+const needToStop = (rollInfo) => {
 
   // Has attack won?
   if (rollInfo.defendArmies === 0) {
