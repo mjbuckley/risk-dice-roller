@@ -19,7 +19,7 @@ const handleSubmit = (userRollInfo) => {
 
   // If there are errors we need to abort and return errors to the user
   if (errors.length > 0) {
-    return updateErrors({errors});
+    return updateErrors(errors);
   }
 
   /** At this point we know the submission is valid and can proceed. The rolling process is handled
@@ -39,7 +39,8 @@ const handleSubmit = (userRollInfo) => {
   // This returns a message and roll history.
   let result = rollTillStop(rollInfo);
 
-  return updateResults({"status": "success", ...result});
+  // return updateResults({"status": "success", ...result});
+  return updateResults(result);
 };
 
 export default handleSubmit;

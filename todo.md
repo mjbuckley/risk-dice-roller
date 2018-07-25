@@ -1,5 +1,7 @@
 # Todo
 
+- Display actual roll history. It might be leaving off the last roll. Check and fix if need be.
+- Test all the different possibilities for errors. Maybe make actual tests.
 - clean up params in getAttackRollNum() inside of rollTillStop().
 - clean up convertSubmission
 - I've changged handleSubmit.js to return an update or error action (but not dispatch it). This is the right approach, but I need to make sure the form I'm returning them in matches what is expected. Right now they are not.

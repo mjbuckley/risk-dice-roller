@@ -52,7 +52,7 @@ const rollTillStop = (rollInfo) => {
 
   if (mustStop) {
 
-    rollInfo.mesage = mustStop;
+    rollInfo.message = mustStop;
     return {'message': rollInfo.message, 'history': rollInfo.history};
   } else {
 

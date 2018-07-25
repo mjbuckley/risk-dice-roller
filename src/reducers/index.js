@@ -13,7 +13,7 @@ const defaultUserRollInfo = {
 function userRollInfo(state = defaultUserRollInfo, action) {
   switch (action.type) {
     case 'UPDATE_USER_ROLL_INFO':
-      return {...state.userRollInfo, ...action.rollInfo};
+      return {...state, ...action.rollInfo};
     default:
       return state;
   }
