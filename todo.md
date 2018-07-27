@@ -1,5 +1,9 @@
 # Todo
 
+- Should input be inside label? Consider making labels two level. Something like attack differential at the top in larger/darker color, then an expliation below that in a smaller/lighter color.
+- Better ways to display errors.
+- Font Awesome React stuff as a way to use dice and maybe some arrow icons?
+- Add some sort of check for really larger numbers that might crash things and aren't realistic.
 - Display actual roll history. It might be leaving off the last roll. Check and fix if need be.
 - Test all the different possibilities for errors. Maybe make actual tests.
 - clean up params in getAttackRollNum() inside of rollTillStop().
