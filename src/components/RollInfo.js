@@ -1,4 +1,3 @@
-// VERY INCOMPLETE BUT AN IDEA OF WHAT TO DO
 import React from 'react';
 
 const RollInfo = (props) => {
@@ -18,8 +17,9 @@ const RollInfo = (props) => {
     <form onSubmit={onSubmit}>
 
       <h2 className="form-heading">Attack Info</h2>
+
       <label className='form-label'>
-        Number of attack armies:
+        Number of attack armies
         <input
           className='form-input'
           name="attackArmies"
@@ -29,7 +29,8 @@ const RollInfo = (props) => {
       </label>
 
       <label className='form-label'>
-        Number of dice to roll (1-3, and must be less than the number of attack armies):
+        Number of dice to roll <br />
+        <span className='form-span'>1-3, and must be less than the number of attack armies</span>
         <input
           className='form-input'
           name="attackRollNum"
@@ -39,7 +40,8 @@ const RollInfo = (props) => {
       </label>
 
       <label className='form-label'>
-        (optional) Stop number: end attack before dropping below this many armies:
+        (Optional) Stop number <br />
+        <span className='form-span'>Stop rolling before dropping below this many attack armies</span>
         <input
           className='form-input'
           name="stopNum"
@@ -49,7 +51,8 @@ const RollInfo = (props) => {
       </label>
 
       <label className='form-label'>
-        Stop before my army differential drops below (optional):
+        (Optional) Stop differential <br />
+        <span className='form-span'>Stop rolling before dropping below this differential. Calculated as the difference between the number of attack armies and defending armies. Ex: -4 would end rolling when attack has 4 fewer armies than the defense.</span>
         <input
           className='form-input'
           name="stopDifferential"
@@ -58,12 +61,12 @@ const RollInfo = (props) => {
           onChange={handleChange} />
       </label>
 
-
       <br />
 
       <h2 className="form-heading">Defense Info</h2>
+
       <label className='form-label'>
-        Number of defending armies on their territory:
+        Number of defending armies
         <input
           className='form-input'
           name="defendArmies"
@@ -73,7 +76,8 @@ const RollInfo = (props) => {
       </label>
 
       <label className='form-label'>
-        Number of dice to roll (1-2, and cannot be greater than the number of defeding armies):
+        Number of dice to roll <br />
+        <span className='form-span'>1-2, and cannot be greater than the number of defeding armies</span>
         <input
           className='form-input'
           name="defendRollNum"
@@ -84,7 +88,6 @@ const RollInfo = (props) => {
 
       <button className="form-button" type="submit">Roll Dice</button>
     </form>
-
   );
 }
 

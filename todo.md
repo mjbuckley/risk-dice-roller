@@ -1,17 +1,22 @@
 # Todo
 
-- Should input be inside label? Consider making labels two level. Something like attack differential at the top in larger/darker color, then an expliation below that in a smaller/lighter color.
+- My roll function is returning values 0-6. Fix this to be 1-6.
+- For table:
+  - add start values
+  - add spaces and commas to roll values
+  - style
+- Remove any lingering console.logs.
+- Document somewhere the redux state and the object that gets returned from rollTillStop().
+- Add note somewhere about how roll number is automatically adjusted as needed.
 - Better ways to display errors.
 - Font Awesome React stuff as a way to use dice and maybe some arrow icons?
 - Add some sort of check for really larger numbers that might crash things and aren't realistic.
-- Display actual roll history. It might be leaving off the last roll. Check and fix if need be.
+- Double check the fix I added in rollTillStop() that added the final history to be returned.
 - Test all the different possibilities for errors. Maybe make actual tests.
 - clean up params in getAttackRollNum() inside of rollTillStop().
 - clean up convertSubmission
 - I've changged handleSubmit.js to return an update or error action (but not dispatch it). This is the right approach, but I need to make sure the form I'm returning them in matches what is expected. Right now they are not.
-- Dice rolling JS logic is done (there might be errors to find, but structure is done). Now I need to integrate that into Redux/React.
 - I mostly fixed my usage to standardize on attack/defend RollNum, but I think there is still some improper usage in some react components (but util stuff should be good).
-
 
 
 - Look over City Weather App notes to see if there's anything important from last time that I might be forgetting.

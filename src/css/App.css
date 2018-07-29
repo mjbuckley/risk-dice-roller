@@ -3,13 +3,10 @@
 }
 
 
-/* Header */
+
+/* HEADER */
 
 .App-header {
-  /* background-color: #F7D869; */
-  /* height: 150px;
-  padding: 20px; */
-  /* color: white; */
   border-bottom: 2px solid #7e57c2;
   background-color: white;
   padding: 10px 0px 10px 20px;
@@ -22,19 +19,14 @@
   font-size: 28px;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
 
-.App-intro {
-  font-size: large;
-}
-
+/* CONTENT */
 
 .App-content {
   max-width: 600px;
   margin: 0 auto;
 }
+
 
 
 /* Form */
@@ -43,7 +35,7 @@
   display: block;
   text-align: left;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .form-input {
@@ -71,4 +63,18 @@
   margin-bottom: 40px;
   width: 120px;
   height: 50px;
+}
+
+.form-span {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+
+
+/* RESULTS */
+
+.results-table {
+  width: 100%;
 }

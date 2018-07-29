@@ -7,12 +7,10 @@ import Results from '../containers/Results.js';
 const App = () => (
   <div className="App">
     <header className="App-header">
-      <h1 className="App-title">Risk Dice Roller</h1>
+      <h1>Risk Dice Roller</h1>
     </header>
     <div className="App-content">
-      <p className="App-intro">
-        An app to speed up the process of rolling dice in the Risk board game.
-      </p>
+      <p>An app to speed up the process of rolling dice in the Risk board game.</p>
 
       <ErrorMessages />
       <RollForm />

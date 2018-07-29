@@ -52,6 +52,16 @@ const rollTillStop = (rollInfo) => {
 
   if (mustStop) {
 
+    // NEW, add roll results to history (normally done at start of function, but doing here since we are retruning now).
+    let latestHistory = {
+      'attackArmies':rollInfo.attackArmies,
+      'defendArmies': rollInfo.defendArmies,
+      ...rollInfo.lastRoll
+    };
+    
+    rollInfo.history.push(latestHistory);
+
+
     rollInfo.message = mustStop;
     return {'message': rollInfo.message, 'history': rollInfo.history};
   } else {
