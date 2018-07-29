@@ -13,13 +13,13 @@ const roll = (attackRollNum, defendRollNum) => {
 
   // Roll for attack and sort low-high
   for (let i = 1; i <= attackRollNum; i++) {
-    attackRolls.push(Math.floor(Math.random() * 7));
+    attackRolls.push(Math.floor(Math.random() * 6 + 1));
   }
   attackRolls.sort((a, b) => a - b); // function ensures sorts by number and not string value
 
   // Roll for defense and sort low-high
   for (let i = 1; i <= defendRollNum; i++) {
-    defendRolls.push(Math.floor(Math.random() * 7));
+    defendRolls.push(Math.floor(Math.random() * 6 + 1));
   }
   defendRolls.sort((a, b) => a - b);
 
