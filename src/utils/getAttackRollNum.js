@@ -20,6 +20,3 @@ const getAttackRollNum = (attackArmies, attackRollNum, defendArmies, stopNum, st
 }
 
 export default getAttackRollNum;
-
-
-// attackRolls AND attackArmies (AND PROBABLY ALL PARAMS) ARE BEING GIVEN AS NAN.

@@ -35,8 +35,8 @@ let defenseResult = rollHistory[rollHistory.length-1].defendArmies;
         </tr>
         {rollHistory.map((roll) => {
           return (<tr>
-            <td>{roll.attackRolls}</td>
-            <td>{roll.defendRolls}</td>
+            <td>{roll.attackRolls.join(', ')}</td>
+            <td>{roll.defendRolls.join(', ')}</td>
             <td>{roll.attackArmies}</td>
             <td>{roll.defendArmies}</td>
           </tr>)

@@ -2,6 +2,7 @@ import convertSubmission from './convertSubmission.js';
 import validateSubmission from './validateSubmission.js';
 import rollTillStop from './rollTillStop.js';
 import { updateErrors, updateResults } from '../actions';
+import getAttackRollNum from './getAttackRollNum.js';
 
 /**
  * handleSubmit() takes the dice rolling info submitted by the user and either returns any errors
@@ -22,11 +23,18 @@ const handleSubmit = (userRollInfo) => {
     return updateErrors(errors);
   }
 
-  /** At this point we know the submission is valid and can proceed. The rolling process is handled
-   * by the rollTillStop function. It takes an object with the same properties as rollInfo but with
-   * the addtion of a last roll array, a history array, and a message string. Add those here, then
-   * call rollTillStop().
+  /** At this point we know the submission is valid and can proceed, but there two more things to do:
+   * 1) validateSubmission() doesn't check roll numbers against stopNum/Differential. Ex: both attack
+   * and defense have 10 and attack wants to roll 3 and has a stopDifferential of -1. They can't roll
+   * more than one or else the stopDifferential could be exceeded. Do the needed check here and update.
+   * 2) The rolling process is handled by the rollTillStop function. It takes an object with the same
+   * properties as rollInfo but with the addtion of a last roll array, a history array, and a message
+   * string. Add those here, then call rollTillStop().
    */
+
+  rollInfo.attackRollNum = getAttackRollNum(
+    rollInfo.attackArmies, rollInfo.attackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
+
   rollInfo.lastRoll = {
     attackRolls: [],
     defendRolls: [],

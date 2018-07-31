@@ -78,3 +78,18 @@
 .results-table {
   width: 100%;
 }
+
+table {
+  background-color: white;
+  border-collapse: collapse;
+  border: 0px;
+}
+
+th, td {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #e1d9f1;
+}
