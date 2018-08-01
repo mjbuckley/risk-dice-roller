@@ -12,7 +12,7 @@ const DisplayResults = (props) => {
   if (props.status !== "results") {
     return null;
   }
-console.log(props);
+
   // roll history becomes the same as props.results.history minus the first history object, which is just the start values. startValue is just that removed history object.
   let rollHistory = [...props.results.history];
   let startValues = rollHistory.shift();

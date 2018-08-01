@@ -32,8 +32,10 @@ const handleSubmit = (userRollInfo) => {
    * string. Add those here, then call rollTillStop().
    */
 
+  rollInfo.originalAttackRollNum = rollInfo.attackRollNum;
+
   rollInfo.attackRollNum = getAttackRollNum(
-    rollInfo.attackArmies, rollInfo.attackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
+    rollInfo.attackArmies, rollInfo.originalAttackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
 
   rollInfo.lastRoll = {
     attackRolls: [],

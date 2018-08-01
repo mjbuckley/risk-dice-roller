@@ -20,14 +20,20 @@ function userRollInfo(state = defaultUserRollInfo, action) {
 }
 
 // can probably just have empty object for rollResults, but should document somewhere what it would look like if used.
+// const defaultResults = {
+//   "status": 'none',
+//   "rollResults": {
+//     "history": [],
+//     "attack": '',
+//     "defense": '',
+//     "message": '',
+//   },
+//   "errors": []
+// };
+
 const defaultResults = {
-  "status": "none",
-  "rollResults": {
-    "history": [],
-    "attack": '',
-    "defense": '',
-    "message": '',
-  },
+  "status": 'none',
+  "rollResults": {},
   "errors": []
 };
 
@@ -58,27 +64,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-
-// Example state:
-//
-// {
-//   userRollInfo: {
-//     "attackArmies": 10,
-//     "defendArmies": 5,
-//     "attackRollNum": 3,
-//     "defendRollNum": 2,
-//     "stopNum": '',
-//     "stopDifferential": ''
-//   },
-//   "results": {
-//     "status": "none",
-//     "rollResults": {
-//       "history": [],
-//       "attack": '',
-//       "defense": '',
-//       "message": '',
-//     },
-//     "errors": []
-//   }
-// }

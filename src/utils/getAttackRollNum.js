@@ -1,8 +1,9 @@
-// Function finds the attack roll number based on current roll number, game rules, and stop conditions.
-const getAttackRollNum = (attackArmies, attackRollNum, defendArmies, stopNum, stopDifferential) => {
+// Function finds the attack roll number based on number of current armies, the orignal desired roll
+// number, game rules, and stop conditions.
+const getAttackRollNum = (attackArmies, orignalAttackRollNum, defendArmies, stopNum, stopDifferential) => {
 
   // Array contains current roll num and max according to rules.
-  let maxRollNums = [attackRollNum, (attackArmies - 1)];
+  let maxRollNums = [orignalAttackRollNum, (attackArmies - 1)];
 
   // Add to array the max roll num that can't result it going below stop stopNum
   if (stopNum) {

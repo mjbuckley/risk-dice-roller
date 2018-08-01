@@ -58,7 +58,7 @@ const rollTillStop = (rollInfo) => {
       'defendArmies': rollInfo.defendArmies,
       ...rollInfo.lastRoll
     };
-    
+
     rollInfo.history.push(latestHistory);
 
 
@@ -66,8 +66,8 @@ const rollTillStop = (rollInfo) => {
     return {'message': rollInfo.message, 'history': rollInfo.history};
   } else {
 
-    // Update attack and defend roll nums (might need to be adjusted down based on new army numbers).
-    rollInfo.attackRollNum = getAttackRollNum(rollInfo.attackArmies, rollInfo.attackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
+    // Update attack and defend roll nums (might need to be adjusted based on new army numbers).
+    rollInfo.attackRollNum = getAttackRollNum(rollInfo.attackArmies, rollInfo.originalAttackRollNum, rollInfo.defendArmies, rollInfo.stopNum, rollInfo.stopDifferential);
     rollInfo.defendRollNum = getDefendRollNum(rollInfo.defendArmies, rollInfo.defendRollNum);
 
     // Roll again

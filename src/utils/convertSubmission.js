@@ -8,25 +8,9 @@
  * Example: {"attackRollNum": "3", "defendRollNum": "sdjfsdj", "stopNum": ''} becomes =>
  * {"attackRollNum": 3, "defendRollNum": NaN, "stopNum": ''}
  */
-
-// const convertSubmission = (rollInfo) => {
-//
-//   let convertedRollInfo = Object.assign({}, ...Object.keys(rollInfo).map(function(key) {
-//
-//     let convertedValue = ((key === "stopNum" || key === "stopDifferential") && rollInfo[key].trim() === '') ? '' : parseFloat(rollInfo[key]);
-//
-//     return { [key]: convertedValue };
-//   }));
-//
-//   return convertedRollInfo;
-// };
-//
-// export default convertSubmission;
-
-
 const convertSubmission = (rollInfo) => {
 
-
+  // creates array of objects with each object being of form {oldKey: convertedValue}
   let temp = Object.keys(rollInfo).map(function(key) {
 
     let convertedValue = ((key === "stopNum" || key === "stopDifferential") && rollInfo[key].trim() === '') ? '' : parseFloat(rollInfo[key]);

@@ -1,8 +1,8 @@
 # Todo
 
-- I fixed the problem where starting attack roll nums didn't account for stop differential, but in doing that I realized that my getAttackRollNum function has an error. A roll will sometimes need to be decreased because of the stop differential, but if attack wins enough the roll number should be able to be increased again, but I don't take that into account (but be sure never to increase beyond the original user stated roll number).
-- Eror: I entered 15, 3, 4, -1 for attack and 15, 2 for defense. Based on what I want, it should only roll 1 for attack because otherwise the differential could be exceeded. What happened is that it rolled 3. This resulted in attack loosing 2 (13 to 15), a result that shouldn't be possible. Then, it rolled again, but the results table shows attack rolling nothing and defense rolling two, and somehow defense lost 1, resulting in 13 to 14, at which point it ended, with a message that the differential had been reached. What's happening?
-- If you click in one of the optional fields but don't enter anything it causes errors to be displayed when submitted.
+- If you click in one of the optional fields but don't enter anything it causes errors to be displayed when submitted (although tabbing seems ok).
+- Test all the different possibilities for errors. Maybe make actual tests.
+
 - Figure out design. Do I need to split into multiple pages? What to do for intro. Have a reset form button. Maybe have some links that scroll to sections when clicked (like roll scrolling to results).
 - Remove any lingering console.logs.
 - Document somewhere the redux state and the object that gets returned from rollTillStop().
@@ -11,7 +11,6 @@
 - Font Awesome React stuff as a way to use dice and maybe some arrow icons?
 - Add some sort of check for really larger numbers that might crash things and aren't realistic.
 - Double check the fix I added in rollTillStop() that added the final history to be returned.
-- Test all the different possibilities for errors. Maybe make actual tests.
 - clean up params in getAttackRollNum() inside of rollTillStop().
 - clean up convertSubmission
 - I've changged handleSubmit.js to return an update or error action (but not dispatch it). This is the right approach, but I need to make sure the form I'm returning them in matches what is expected. Right now they are not.
