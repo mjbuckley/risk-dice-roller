@@ -11,12 +11,10 @@ const App = () => (
     </header>
     <div className="App-content">
       <p>An app to speed up the process of rolling dice in the Risk board game.</p>
-
       <ErrorMessages />
       <RollForm />
       <Results />
-  </div>
-
+    </div>
   </div>
 );
 

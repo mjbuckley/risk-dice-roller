@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-// import individual reducers here
 
 const defaultUserRollInfo = {
   'attackArmies': '',
@@ -18,18 +17,6 @@ function userRollInfo(state = defaultUserRollInfo, action) {
       return state;
   }
 }
-
-// can probably just have empty object for rollResults, but should document somewhere what it would look like if used.
-// const defaultResults = {
-//   "status": 'none',
-//   "rollResults": {
-//     "history": [],
-//     "attack": '',
-//     "defense": '',
-//     "message": '',
-//   },
-//   "errors": []
-// };
 
 const defaultResults = {
   "status": 'none',

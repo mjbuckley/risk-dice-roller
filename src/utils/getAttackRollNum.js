@@ -2,7 +2,7 @@
 // number, game rules, and stop conditions.
 const getAttackRollNum = (attackArmies, orignalAttackRollNum, defendArmies, stopNum, stopDifferential) => {
 
-  // Array contains current roll num and max according to rules.
+  // Array contains desired roll num and max according to rules.
   let maxRollNums = [orignalAttackRollNum, (attackArmies - 1)];
 
   // Add to array the max roll num that can't result it going below stop stopNum

@@ -2,7 +2,7 @@
  * This function handles one round of rolling, with 1-3 dice being rolled for attack, and 1-2 dice
  * being rolled for defense. It does not handle the entire multi-round rolling sequence (for that,
  * see rollTillStop(), which calls this function). Returns an object with the roll resuls (sorted
- * low-high, and the resulting differentials for attack/defend. Ex:
+ * low-high, and the  relative results for attack/defend. Ex:
  * {"attackRolls": [1, 2], "defendRolls": [3], "attackResult": -1, "defendResult": 0}
  */
 const roll = (attackRollNum, defendRollNum) => {

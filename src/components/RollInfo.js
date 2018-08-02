@@ -1,5 +1,6 @@
 import React from 'react';
 
+// The form that collects the roll information from the user.
 const RollInfo = (props) => {
 
   const handleChange = event => {

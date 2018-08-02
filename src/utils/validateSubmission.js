@@ -3,12 +3,12 @@
  * of error checking. The first round checks for basic errors like non-numbers or non-integers. The
  * second round makes sure values are consistant with game rules. Although all errors could be checked at
  * once, the errors in the first round would likely cause most of the errors in the second round to
- * be triggered, and this would be too many errors to be useful. The function returns an array. If
- * empty, then there were no errors. If not empty, the array will contain an array for each error
- * found. Each sub array contain the name of the value where the error occured, and a message about
- * the error. See getErrorDescripion below for an example.
+ * be triggered, and this would be too many errors to be useful, so if any first round errors are
+ * found they are returned right away. The function returns an array. If empty, then there were no
+ * errors. If not empty, the array will contain an array for each error found. Each sub array contains
+ * the name of the value where the error occured, and a message about the error. See getErrorDescripion
+ * below for an example.
  */
-
 const validateSubmission = (rollInfo) => {
 
   // Object containing descriptions for the possible errors.

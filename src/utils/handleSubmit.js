@@ -5,9 +5,11 @@ import { updateErrors, updateResults } from '../actions';
 import getAttackRollNum from './getAttackRollNum.js';
 
 /**
- * handleSubmit() takes the dice rolling info submitted by the user and either returns any errors
- * in the the form submission to the user or handles all of the rolling and returns the results.
- * It takes an object as it argument that corresponds to the userRollInfo property of the Redux state.
+ * handleSubmit() takes the dice rolling info submitted by the user and determines if there are any
+ * errors. If there are errors it returns an action with a type of 'UPDATE_ERRORS' and containing the
+ * errors. If the submission is valid, it does all of the rolling and then returns an action with a
+ * type of 'UPDATE_RESULTS' and containing the corresponding results. The function takes an object
+ * as it argument that corresponds to the userRollInfo property of the Redux state.
  */
 const handleSubmit = (userRollInfo) => {
 
@@ -24,12 +26,15 @@ const handleSubmit = (userRollInfo) => {
   }
 
   /** At this point we know the submission is valid and can proceed, but there two more things to do:
-   * 1) validateSubmission() doesn't check roll numbers against stopNum/Differential. Ex: both attack
-   * and defense have 10 and attack wants to roll 3 and has a stopDifferential of -1. They can't roll
-   * more than one or else the stopDifferential could be exceeded. Do the needed check here and update.
+   * 1) validateSubmission() made sure that attackRollNum was consistant with game rules, but the
+   * actual attack roll num might need to be less than the desired roll num because of
+   * stopDifferential/Num. Ex:both attack and defense have 10 and attack wants to roll 3 and has a
+   * stopDifferential of -1. Attack can't roll more than one or else the stopDifferential could be
+   * exceeded. Save desired attack num as originalAttackRollNum and then update attackRollNum to
+   * factor in stopDifferential/Num.
    * 2) The rolling process is handled by the rollTillStop function. It takes an object with the same
-   * properties as rollInfo but with the addtion of a last roll array, a history array, and a message
-   * string. Add those here, then call rollTillStop().
+   * properties as currently in rollInfo but with the addition of a last roll array, a history array,
+   * and a message string. Add those, then call rollTillStop().
    */
 
   rollInfo.originalAttackRollNum = rollInfo.attackRollNum;
@@ -49,7 +54,6 @@ const handleSubmit = (userRollInfo) => {
   // This returns a message and roll history.
   let result = rollTillStop(rollInfo);
 
-  // return updateResults({"status": "success", ...result});
   return updateResults(result);
 };
 

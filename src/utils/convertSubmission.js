@@ -19,7 +19,8 @@ const convertSubmission = (rollInfo) => {
   });
 
 
-
+  // Takes array of objects and spreads them into a single object mimicing the original rollInfo
+  // but now with converted values.
   let convertedRollInfo = Object.assign({}, ...temp);
 
   return convertedRollInfo;
