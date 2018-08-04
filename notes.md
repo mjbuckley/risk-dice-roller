@@ -1,3 +1,8 @@
+### Tests
+
+I added a number of simple tests to the utility functions. They will catch many errors, but there is not 100% coverage and there are some cases where a test might not catch an error. Treat the tests as a helpful tool but not a guarantee of perfection.
+
+
 ### Redux State Shape:
 
 ```
