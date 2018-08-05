@@ -1,5 +1,6 @@
 # Todo
 
+- I redid how errors are displayed and added some styling. This is mostly good, but do some tests and finalize styling. Maybe cleanup code too.
 - Fix console errors: keys on mapped element, table issue, others?
 - At one point if you click in one of the optional fields but didn't enter anything it caused errors to be displayed when submitted (although tabbing seems ok). I couldn't get this to happen more recently, so perhaps something else I did fixed this, but play around with this and make sure it isn't still happening.
 - Test all the different possibilities for errors with different inputs. Maybe make some actual tests.

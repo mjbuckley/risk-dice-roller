@@ -4,7 +4,8 @@ import { updateUserRollInfo } from '../actions';
 import handleSubmit from '../utils/handleSubmit.js';
 
 const mapStateToProps = (state) => ({
-  userRollInfo: state.userRollInfo
+  userRollInfo: state.userRollInfo,
+  errors: state.results.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({

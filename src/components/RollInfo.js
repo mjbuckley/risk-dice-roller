@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorMessage from './ErrorMessage.js';
 
 // The form that collects the roll information from the user.
 const RollInfo = (props) => {
@@ -19,6 +20,7 @@ const RollInfo = (props) => {
 
       <h2 className="form-heading">Attack Info</h2>
 
+      <ErrorMessage errors={props.errors} name="attackArmies" />
       <label className='form-label'>
         Number of attack armies
         <input
@@ -29,6 +31,7 @@ const RollInfo = (props) => {
           onChange={handleChange} />
       </label>
 
+      <ErrorMessage errors={props.errors} name="attackRollNum" />
       <label className='form-label'>
         Number of dice to roll <br />
         <span className='form-span'>1-3, and must be less than the number of attack armies</span>
@@ -40,6 +43,7 @@ const RollInfo = (props) => {
           onChange={handleChange} />
       </label>
 
+      <ErrorMessage errors={props.errors} name="stopNum" />
       <label className='form-label'>
         (Optional) Stop number <br />
         <span className='form-span'>Stop rolling before dropping below this many attack armies</span>
@@ -51,6 +55,7 @@ const RollInfo = (props) => {
           onChange={handleChange} />
       </label>
 
+      <ErrorMessage errors={props.errors} name="stopDifferential" />
       <label className='form-label'>
         (Optional) Stop differential <br />
         <span className='form-span'>Stop rolling before dropping below this differential. Calculated as the difference between the number of attack armies and defending armies. Ex: -4 would end rolling when attack has 4 fewer armies than the defense.</span>
@@ -66,6 +71,7 @@ const RollInfo = (props) => {
 
       <h2 className="form-heading">Defense Info</h2>
 
+      <ErrorMessage errors={props.errors} name="defendArmies" />
       <label className='form-label'>
         Number of defending armies
         <input
@@ -76,6 +82,7 @@ const RollInfo = (props) => {
           onChange={handleChange} />
       </label>
 
+      <ErrorMessage errors={props.errors} name="defendRollNum" />
       <label className='form-label'>
         Number of dice to roll <br />
         <span className='form-span'>1-2, and cannot be greater than the number of defeding armies</span>
