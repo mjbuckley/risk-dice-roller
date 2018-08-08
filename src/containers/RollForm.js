@@ -1,11 +1,12 @@
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import RollInfo from '../components/RollInfo.js';
 import { updateUserRollInfo } from '../actions';
 import handleSubmit from '../utils/handleSubmit.js';
 
 const mapStateToProps = (state) => ({
   userRollInfo: state.userRollInfo,
-  errors: state.results.errors
+  errors: state.results.errors,
+  status: state.results.status
 });
 
 const mapDispatchToProps = (dispatch) => ({
