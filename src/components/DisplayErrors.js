@@ -7,19 +7,10 @@ const DisplayErrors = (props) => {
     return null;
   }
 
-//   return (
-//     <div className="errors">
-//       {props.errors.map((error) =>
-//         <p key={error[0]}>{error[1]}</p>
-//       )}
-//     </div>
-//   );
-// };
-
-
-const errorMessage = props.errors.length > 1 ? (
-  "There were errors in your submission. Please look at the error messages in the form and adjust you roll information.") :
-  ("There was an error in your submission. Please look at the error message in the form and adjust your roll information");
+  // Correct message grammar based on number of errors
+  const errorMessage = props.errors.length > 1 ? (
+    "There were errors in your submission. Please look at the error messages in the form and adjust you roll information.") :
+    ("There was an error in your submission. Please look at the error message in the form and adjust your roll information");
 
   return (
     <div className="errors">
