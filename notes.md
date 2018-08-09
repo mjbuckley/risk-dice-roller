@@ -16,6 +16,7 @@ I added a number of simple tests to the utility functions. They will catch many 
     'stopDifferential': ''
   },
   'results': {
+    "clickCount": 0,
     "status": 'none',
     "rollResults": {
       "history": [],

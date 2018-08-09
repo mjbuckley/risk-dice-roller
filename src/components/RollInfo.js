@@ -25,13 +25,26 @@ class RollInfo extends Component {
 
   // handles scrolling to results or errors on roll form submission
   componentDidUpdate(prevProps) {
-    if (this.props.status === 'none' || this.props.status === prevProps.status) {
+    // if (this.props.status === 'none' || this.props.status === prevProps.status) {
+    //   return;
+    // }
+    //
+    // if (this.props.status === 'errors') {
+    //   this.topNode.scrollIntoView();
+    // } else {
+    //   this.bottomNode.scrollIntoView();
+    // }
+
+    // NEW
+    if (this.props.clickCount === prevProps.clickCount) {
       return;
     }
 
     if (this.props.status === 'errors') {
+      // scroll to errors
       this.topNode.scrollIntoView();
     } else {
+      // scroll to results
       this.bottomNode.scrollIntoView();
     }
   }

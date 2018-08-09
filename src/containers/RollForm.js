@@ -6,7 +6,8 @@ import handleSubmit from '../utils/handleSubmit.js';
 const mapStateToProps = (state) => ({
   userRollInfo: state.userRollInfo,
   errors: state.results.errors,
-  status: state.results.status
+  status: state.results.status,
+  clickCount: state.results.clickCount
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -19,6 +19,7 @@ function userRollInfo(state = defaultUserRollInfo, action) {
 }
 
 const defaultResults = {
+  "clickCount": 0,
   "status": 'none',
   "rollResults": {},
   "errors": []
@@ -28,12 +29,14 @@ function results(state = defaultResults, action) {
   switch (action.type) {
     case 'UPDATE_RESULTS':
       return {
+        'clickCount': state.clickCount + 1,
         'status': 'results',
         'rollResults': action.results,
         'errors': []
       };
     case 'UPDATE_ERRORS':
       return {
+        'clickCount': state.clickCount + 1,
         'status': 'errors',
         'rollResults': {},
         'errors': action.errors
