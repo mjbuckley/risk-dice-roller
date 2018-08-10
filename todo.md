@@ -1,12 +1,11 @@
 # Todo
 
-- Scrolling basically works. I might change the exact scroll location, but it's good. The only problem is on subsequent submissions. If there were errors and then the user submits, the status remains 'errors' and it won't scroll. The same problem exists for 'success'. Figure out a good solution. Perhaps some sort of clicked state that gets set when clicked, which is then checked for and removed before rerender?
-
+- In display results I use shift() on its own to remove the first element in an array. Works fine but how I'm doing it is funny. Find a better way.
 - Make About and 404 into full pages
-- Fix console errors: keys on mapped element, table issue, others?
 - At one point if you click in one of the optional fields but didn't enter anything it caused errors to be displayed when submitted (although tabbing seems ok). I couldn't get this to happen more recently, so perhaps something else I did fixed this, but play around with this and make sure it isn't still happening.
 - Test all the different possibilities for errors with different inputs. Maybe make some actual tests.
 - Finalize design. Have a reset form button. Better results display. Add link to about page in both intor and maybe on menu.
+- Decide if I like the scrolling locations.
 - Mobile styling
 - I'm putting all css in App.css. I've only imported it in App.js, but since Root.js imports App, the css is available everywhere. However, if I ever used code splitting this would be a problem. I'm not doing code splitting because the site is so small, but maybe make a note of this in notes (and don't use this pattern on larger apps).
 - Add note somewhere about how roll number is automatically adjusted as needed.
