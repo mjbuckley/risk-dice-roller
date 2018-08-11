@@ -1,5 +1,6 @@
 # Todo
 
+- Do I need all 3 font awesome dependencies?
 - In display results I use shift() on its own to remove the first element in an array. Works fine but how I'm doing it is funny. Find a better way.
 - Make About and 404 into full pages
 - At one point if you click in one of the optional fields but didn't enter anything it caused errors to be displayed when submitted (although tabbing seems ok). I couldn't get this to happen more recently, so perhaps something else I did fixed this, but play around with this and make sure it isn't still happening.
@@ -12,9 +13,6 @@
 - Add some sort of check for really larger numbers that might crash things and aren't realistic.
 - Remove PWA stuff before initial build.
 - Look over City Weather App notes to see if there's anything important from last time that I might be forgetting.
-- Make changes (in package.json?) to have site title show up instead of React App (also change other things there like version number, description, etc.).
-- Add favicon?
-- Make sure head stuff is good, and be sure there are good meta descriptions (use Helmet).
 - Decide on browsers to support. Install core-js for pollyfills if needed.
 - Run build (but only after PWA stuff removed) and test that locally and with google speed/accessibility test. Note that serve is installed globally. I can serve the build version of the app using "serve -s build"
 - Have my name and a link to my github repo somewhere on site.
