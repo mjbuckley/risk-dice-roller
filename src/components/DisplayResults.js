@@ -6,8 +6,8 @@ const DisplayResults = (props) => {
     return null;
   }
 
-  // roll history becomes the same as props.results.history minus the first history object, which is
-  // just the start values.
+  // roll history becomes the same as props.results.history minus the first history object (which is
+  // just the start values).
   let rollHistory = [...props.results.history];
   rollHistory.shift();
 

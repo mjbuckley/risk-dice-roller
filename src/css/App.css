@@ -144,6 +144,7 @@ form {
   margin-bottom: 20px;
   width: 120px;
   height: 50px;
+  cursor: pointer;
 }
 
 .form-span {
@@ -225,4 +226,33 @@ tr:nth-child(even) {
 
 .error-arrow {
   color: #D02434;
+}
+
+
+
+/* NoMatch (404-like page) */
+
+.No-match-text {
+  margin: 60px auto 0px auto;
+  max-width: 750px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+
+
+/* ABOUT */
+
+.About-contents {
+  margin: 60px auto 0px auto;
+  max-width: 750px;
+}
+
+.About-contents p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.About-contents h2, h3 {
+  font-weight: 400;
 }
