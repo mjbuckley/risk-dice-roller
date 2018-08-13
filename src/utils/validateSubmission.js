@@ -13,8 +13,8 @@ const validateSubmission = (rollInfo) => {
 
   // Object containing descriptions for the possible errors.
   const getErrorDescripion = {
-    "attackArmies": ["attackArmies", "The number of attacking armies must be a whole number greater than or equal to 2."],
-    "defendArmies": ["defendArmies", "The number of defending armies must be a whole number greater than or equal to 1."],
+    "attackArmies": ["attackArmies", "The number of attacking armies must be a whole number greater than or equal to 2 and less than 1000."],
+    "defendArmies": ["defendArmies", "The number of defending armies must be a whole number greater than or equal to 1 and less than 1000."],
     "attackRollNum": ["attackRollNum", "Attack can only roll 1, 2 or 3 dice, and the number of dice rolled must be less than the number of attack armies."],
     "defendRollNum": ["defendRollNum", "Defense can only roll 1 or 2 dice, and the number of dice rolled must not exceed the number of defense armies."],
     "stopNum": ["stopNum", "A stop number is optional, but if used it must be a whole number that is less than the current number of attack armies and greater than 0."],
@@ -42,13 +42,15 @@ const validateSubmission = (rollInfo) => {
   // (where allowed). Now verify that those numbers make sense/follow game rules.
 
 
-  // Need at least 2 armies to attack
-  if (rollInfo["attackArmies"] < 2) {
+  // Need at least 2 armies to attack and less than 1000 (not a rule, but not a realistic number
+  // and avoids potentially causing the browser to crash).
+  if (rollInfo["attackArmies"] < 2 || rollInfo["attackArmies"] > 999) {
     errors.push(getErrorDescripion["attackArmies"]);
   };
 
-  // Having less than 1 defending army is nonsensical
-  if (rollInfo["defendArmies"] < 1) {
+  // Having less than 1 defending army is nonsensical, and should have less than 1000 (this is not a
+  // realistic number and could casue the browser to crash).
+  if (rollInfo["defendArmies"] < 1 || rollInfo["defendArmies"] > 999) {
     errors.push(getErrorDescripion["defendArmies"]);
   };
 
@@ -73,7 +75,7 @@ const validateSubmission = (rollInfo) => {
 
   // If used, stopDifferential must be less than the current differential.
   let currentDiff = rollInfo["attackArmies"] - rollInfo["defendArmies"];
-  if (rollInfo["stopDifferential"] >= currentDiff) {
+  if (rollInfo["stopDifferential"] && rollInfo["stopDifferential"] >= currentDiff) {
     errors.push(getErrorDescripion["stopDifferential"]);
   };
 
