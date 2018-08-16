@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import RollInfo from '../components/RollInfo.js';
-import { updateUserRollInfo } from '../actions';
+import { updateUserRollInfo, resetForm } from '../actions';
 import handleSubmit from '../utils/handleSubmit.js';
 
 const mapStateToProps = (state) => ({
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleChange: (rollInfo) => dispatch(updateUserRollInfo(rollInfo)),
-  onSubmit: (userRollInfo) => dispatch(handleSubmit(userRollInfo))
+  onSubmit: (userRollInfo) => dispatch(handleSubmit(userRollInfo)),
+  resetForm: () => dispatch(resetForm())
 });
 
 const RollForm = connect(

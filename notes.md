@@ -36,6 +36,7 @@ The results object can have one of three statuses:
 2) 'results': The form was submitted with valid information and there is a result. The history array will have the complete roll history, the attack and defense keys have the final values for each side, and the message explains why rolling stopped. The errors array will be empty.
 3) 'errors': The form was submitted and there were errors. The errors array will contain the error message(s). Each error is an array of the form [name of field where error occurred, error description]. The results object will be empty.
 
+clickCount is updated when the user clicks on the roll or reset button. It is used to know when to scroll the screen to a useful spot.
 
 
 ### The History Array Form

@@ -108,7 +108,7 @@ form {
   max-width: 750px;
   padding: 40px 75px 40px 75px;
   border: 1px solid #7e57c2;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   background-color: white;
 }
 
@@ -153,12 +153,18 @@ form {
   font-size: 18px;
 }
 
+.form-reset {
+  font-weight: 300;
+  margin: 0px;
+  cursor: pointer;
+}
+
 
 
 /* RESULTS */
 
 .success {
- max-width: 700px;
+ max-width: 750px;
  margin: 60px auto 60px auto;
  text-align: center;
 }
@@ -254,5 +260,9 @@ tr:nth-child(even) {
 }
 
 .About-contents h2, h3 {
+  font-weight: 400;
+}
+
+.About-email {
   font-weight: 400;
 }

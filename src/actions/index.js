@@ -15,6 +15,6 @@ export const updateErrors = errors => ({
 });
 
 // Not using this yet but will add later
-export const resetFrom = () => ({
+export const resetForm = () => ({
   'type': 'RESET_FORM'
 });

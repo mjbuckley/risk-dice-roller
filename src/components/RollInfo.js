@@ -23,18 +23,19 @@ class RollInfo extends Component {
     this.props.onSubmit(this.props.userRollInfo);
   };
 
-  // handles scrolling to results or errors on roll form submission
+  // scrolls to appropriate place on screen if needed
   componentDidUpdate(prevProps) {
+    // if click count is unchanged then no need to scroll (probably an update due to form input)
     if (this.props.clickCount === prevProps.clickCount) {
       return;
     }
 
-    if (this.props.status === 'errors') {
-      // scroll to errors
-      this.topNode.scrollIntoView();
-    } else {
+    if (this.props.status === 'results') {
       // scroll to results
       this.bottomNode.scrollIntoView();
+    } else {
+      // errors or form reset so scroll to top
+      this.topNode.scrollIntoView();
     }
   }
 
@@ -121,6 +122,7 @@ class RollInfo extends Component {
           </label>
 
           <button className="form-button" type="submit">Roll Dice</button>
+          <p className="form-reset"><a onClick={this.props.resetForm}>Reset Form</a></p>
         </form>
         <div ref={(spot) => { this.bottomNode = spot; }} className="placeholder"></div>
       </div>

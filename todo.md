@@ -1,8 +1,6 @@
 # Todo
 
-- Settle on max width of 700 or 750. I have some of both on home page.
-- Finalize design. Have a reset form button. Better results display. Add link to about page in both intor and maybe on menu.
-- Decide if I like the scrolling locations.
+- Finalize design. Better results display. Add reset link in results section?
 - Mobile styling
 - Test in different browsers.
 
@@ -26,5 +24,6 @@
 - A few very odd inputs (such as -3 attack armies and -1 attack rolls) can result in some slightly confusing (but not incorrect) error notices. I'm ok with this because they are very unlikely to happen without someone trying to break things, plus the error notices aren't wrong, just not super clear. Trying to have perfect notices for everything would make the error section too confusing. Better to have good clear notices for 99% of the cases.
 - At one point I was having a problem where there would be errors showing up for stopNum and stopDifferential (possibly not stopNum, but definitely stopDifferential) even though nothing was entered there. It didn't happen all of the time. I feel like clicking in the field would make it more likely (although tabbing seemed ok), but not certain. I realized one problem was that my validation wasn't checking for the existence of a stopDifferential when doing the comparisons to the current differential. I fixed this, and it seemed to stop the problem, but I can't figure out why the error wasn't happening all the time. I think I'm ok now, but that was weird and uncertain enough that I'm keeping the note around.
 - I removed the max option from the attackArmies and defendArmies inputs because it sort of overrode my own error checking. On submit it would scroll to the top, but it would use the browser based notification that the number was too high but not show my error notices. There might be a way around this, but I prefer my error notices. Additionally, if there were previous results, it kept those around, which is confusing.
+- I have 750px as a max width for everything except for the home page intro, which is a bit narrower. I think it looks better this way on large screens, but noting here because it might be easy to forget about or later seem to be an error.
 - Although I never explicitly use it, I apparently need to have @fortawesome/fontawesome-svg-core in the package.json or else the other fontawesome packages that I do use won't work.
 - NPM ERROR NOTE: I get the following error from npm: "npm WARN ajv-keywords@3.1.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself." Keep in mind if I ever have an issue.

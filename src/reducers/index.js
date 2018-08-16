@@ -13,6 +13,8 @@ function userRollInfo(state = defaultUserRollInfo, action) {
   switch (action.type) {
     case 'UPDATE_USER_ROLL_INFO':
       return {...state, ...action.rollInfo};
+    case 'RESET_FORM':
+      return defaultUserRollInfo;
     default:
       return state;
   }
@@ -42,7 +44,8 @@ function results(state = defaultResults, action) {
         'errors': action.errors
       };
     case 'RESET_FORM':
-      return defaultResults;
+      const clickCount = state.clickCount + 1;
+      return {...defaultResults, "clickCount": clickCount};
     default:
       return state;
   }
