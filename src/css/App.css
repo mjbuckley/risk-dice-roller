@@ -171,7 +171,12 @@ form {
 
 .success h2 {
   font-weight: 400;
-  font-size: 26px;
+  font-size: 28px;
+  text-decoration: underline;
+}
+
+.success-reset {
+  cursor: pointer;
 }
 
 .success-results {

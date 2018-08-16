@@ -29,7 +29,9 @@ const DisplayResults = (props) => {
     <div className="success">
       <h2>Results</h2>
       <p className='success-results'>Attack: <span className='result-num'>{attackResult}</span> Defense: <span className='result-num'>{defenseResult}</span></p>
-      <p className='success-message'>{props.results.message} See full history below:</p>
+      <p className='success-message'>
+        {props.results.message} View the full roll history below, or <a className="success-reset"  onClick={props.resetForm}>reset the form</a> and roll again with new information.
+      </p>
 
       <table className='results-table'>
         <thead>
