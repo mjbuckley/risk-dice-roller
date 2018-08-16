@@ -1,3 +1,3 @@
 # Risk Dice Roller
 
-An app to speed up the dice rolling process in the Risk board game.
+This repo contains the code for the [Risk Dice Roller](https://mjbuckley.github.io/risk-dice-roller/) website. The site automates the process of dice rolling for the risk board game. It was built using React and Redux.
