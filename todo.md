@@ -9,7 +9,6 @@
 - Run build (but only after PWA stuff removed) and test that locally and with google speed/accessibility test. Note that serve is installed globally. I can serve the build version of the app using "serve -s build"
 - Spell check
 - Have another person look at it and use it.
-- Create a good readme. Have a link to live site (and link from live site to gitub)
+- Create a good readme. Have a link to live site.
 - Final code/comment cleanup (remove any lingering console.logs).
-- Add to github.
-- Deploy.
+- Add stuff needed to auto deploy on push and to handle browser history on github pages, then deploy.
