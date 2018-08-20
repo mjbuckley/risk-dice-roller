@@ -1,8 +1,6 @@
 # Todo
 
-- Mobile styling
-- Test in different browsers.
-
+- GitHub showed a security vulnerability in package-lock.json for the url-parse package. See what if anything I need to do.
 - Remove PWA stuff before initial build.
 - Look over City Weather App notes to see if there's anything important from last time that I might be forgetting.
 - Decide on browsers to support. Install core-js for pollyfills if needed.
