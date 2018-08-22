@@ -1,10 +1,17 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import AppHeader from './AppHeader';
 
 // Site About page
 const About = () => {
   return (
     <div className="About">
+
+      <Helmet>
+        <title>About The Site | Risk Dice Roller</title>
+        <meta name="description" content="The Risk Dice Roller speeds up the board game Risk by letting the computer roll for you. Get rolling results right away." />
+      </Helmet>
+
       <AppHeader />
       <div className="About-contents">
         <h2>About</h2>

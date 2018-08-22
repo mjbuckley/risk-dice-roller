@@ -103,6 +103,17 @@ I added a number of simple tests. They will catch many errors, but there is not 
 
 
 
+### Removing PWA Stuff
+
+I decided I didn't want this to be a PWA for now, but CRA is PWA by default, so I removed those features. The steps I took were:
+
+- Removed this line from index.html: ```<link rel="manifest" href="%PUBLIC_URL%/manifest.json">```
+- Commented out PWA stuff in index.js
+- Removed manifest.json from public folder.
+- Changed the build line in package.json to stop autogenerating service-worker.js file. It now reads: ```"react-scripts build && rm build/service-worker.js"``` The file probably does nothing without the call to register service worker, but it's cleaner this way.
+
+
+
 ### Other Notes
 
 - I'm putting all css in App.css. I've only imported it in App.js, but since Root.js imports App, the css is available everywhere. However, if I ever used code splitting this would be a problem. I'm not doing code splitting because the site is so small, but maybe make a note of this in notes (and don't use this pattern on larger apps).
