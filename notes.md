@@ -114,6 +114,19 @@ I decided I didn't want this to be a PWA for now, but CRA is PWA by default, so 
 
 
 
+### Deployment Notes
+
+There are good instructions on deploying to GitHub pages in the CRA user guide [deployment section](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages), but here is the gist:
+  - Add a homepage section in package.json: ```  "homepage": "https://mjbuckley.github.io/risk-dice-roller"```
+  - Install gh-pages package
+  - Add predeploy and deploy sections to scripts section of package.json: ```"predeploy": "npm run build", "deploy": "gh-pages -d build"```
+  - Make sure routing is taken care of (see explination below).
+  - Now, to deploy just run ```npm run deploy```. This will run build and then push the build folder to the gh-pages branch on the repo. This is independent of the master branch. The master needs to be pushed on its own.
+
+**Routing:** Because I'm serving the site from GitHub Pages and also using browser history, typically you need a way redirect all requests to index.html so that pages other than the home page that are entered into the browser directly show up properly. There are several clever workarounds for this, but since I only have two pages other than the home page, I decided to just add an about.html and a 404.html file to my build folder. The actual contents of the pages are identical to index.html. To do this I added "&& cp build/index.html build/about.html && cp build/index.html build/404.html" to the end of the build script in package.json. The site meta description and title are still able to be unique because they are handled using react-helmet. There are a lot of reasons why this approach wouldn't work for a larger site, but I think it is a good simple method for this one.
+
+
+
 ### Other Notes
 
 - I'm putting all css in App.css. I've only imported it in App.js, but since Root.js imports App, the css is available everywhere. However, if I ever used code splitting this would be a problem. I'm not doing code splitting because the site is so small, but maybe make a note of this in notes (and don't use this pattern on larger apps).
