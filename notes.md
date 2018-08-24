@@ -98,8 +98,15 @@ I added a number of simple tests. They will catch many errors, but there is not 
 
 ### Future Enhancements
 
+- I should probably add back a Web App Manifest (manifest.json). I removed it because I thought it was only needed when using service workers and a more fully implemented progressive web app setup, but it is also useful in other cases, like saving site to a cell home screen.
 - Current mobile styling is fine but could be improved.
 - Not sure if I like the spot that the app scrolls to when there are results. If the results are long enough then it isn't obvious to the user that they are still on the same page as the form. Maybe scroll somewhere else or at least give a visual clue that they are on the same page.
+
+
+
+### Running Site Locally
+
+Running the site locally using ```npm start``` works fine. However, running the built site locally using serve has issues. To simulate how GitHub pages works, you would run ```serve build``` (note that CRA user guide says ```serve -s build```, but this is to simulate servers that are able to redirect all requests to index.html, but ghpages doesn't, hence the dropped -s). However, because GitHub serves from a subdirectory, the paths for all the cs and js is prefixed with that url and therefore they don't load properly when running build locally. There is probably a setting in serve to get around this, but just noting to be aware of. Also, you can always temporarily remove the homepage section from package.json and everything works fine.
 
 
 
@@ -111,17 +118,20 @@ I decided I didn't want this to be a PWA for now, but CRA is PWA by default, so 
 - Commented out PWA stuff in index.js
 - Removed manifest.json from public folder.
 - Changed the build line in package.json to stop autogenerating service-worker.js file. It now reads: ```"react-scripts build && rm build/service-worker.js"``` The file probably does nothing without the call to register service worker, but it's cleaner this way.
+- NOTE: In hindsight it is probably worthwhile keeping the web app manifest around even if not using service workers or other PWA features. Useful for things like saving site to a cell home screen.
 
 
 
 ### Deployment Notes
 
 There are good instructions on deploying to GitHub pages in the CRA user guide [deployment section](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#github-pages), but here is the gist:
-  - Add a homepage section in package.json: ```  "homepage": "https://mjbuckley.github.io/risk-dice-roller"```
+  - Add a homepage section in package.json: ```"homepage": "https://mjbuckley.github.io/risk-dice-roller"```
   - Install gh-pages package
   - Add predeploy and deploy sections to scripts section of package.json: ```"predeploy": "npm run build", "deploy": "gh-pages -d build"```
+  - Pages are served from a different location when running locally ('/') vs. GitHub Pages ('/risk-dice-roller'). Create React App has a PUBLIC_URL variable that returns the public url for the build but nothing when run locally. In JS it can be accessed with {process.env.PUBLIC_URL}. CRA uses this where appropriate for the things that it handles, but React Router needs to be clued in. Adding the following in root.js allows React Router to run properly in both environments:```<Router basename={process.env.PUBLIC_URL}>```
   - Make sure routing is taken care of (see explination below).
   - Now, to deploy just run ```npm run deploy```. This will run build and then push the build folder to the gh-pages branch on the repo. This is independent of the master branch. The master needs to be pushed on its own.
+  - Note that because of how GitHub Pages works there are some issues with running the built version locally. See the "Running Site Locally" section for info.
 
 **Routing:** Because I'm serving the site from GitHub Pages and also using browser history, typically you need a way redirect all requests to index.html so that pages other than the home page that are entered into the browser directly show up properly. There are several clever workarounds for this, but since I only have two pages other than the home page, I decided to just add an about.html and a 404.html file to my build folder. The actual contents of the pages are identical to index.html. To do this I added "&& cp build/index.html build/about.html && cp build/index.html build/404.html" to the end of the build script in package.json. The site meta description and title are still able to be unique because they are handled using react-helmet. There are a lot of reasons why this approach wouldn't work for a larger site, but I think it is a good simple method for this one.
 
@@ -135,5 +145,7 @@ There are good instructions on deploying to GitHub pages in the CRA user guide [
 - At one point I was having a problem where there would be errors showing up for stopNum and stopDifferential (possibly not stopNum, but definitely stopDifferential) even though nothing was entered there. It didn't happen all of the time. I feel like clicking in the field would make it more likely (although tabbing seemed ok), but not certain. I realized one problem was that my validation wasn't checking for the existence of a stopDifferential when doing the comparisons to the current differential. I fixed this, and it seemed to stop the problem, but I can't figure out why the error wasn't happening all the time. I think I'm ok now, but that was weird and uncertain enough that I'm keeping the note around.
 - I removed the max option from the attackArmies and defendArmies inputs because it sort of overrode my own error checking. On submit it would scroll to the top, but it would use the browser based notification that the number was too high but not show my error notices. There might be a way around this, but I prefer my error notices. Additionally, if there were previous results, it kept those around, which is confusing.
 - I have 750px as a max width for everything except for the home page intro, which is a bit narrower. I think it looks better this way on large screens, but noting here because it might be easy to forget about or later seem to be an error.
+- I don't have a sitemap because the site is so small, otherwise I probably would.
+- I don't have a robots.txt file because the only thing I need to specify not to index is the 404 page, which I do with a meta robots tag. I think this is probably the right approach.
 - Although I never explicitly use it, I apparently need to have @fortawesome/fontawesome-svg-core in the package.json or else the other fontawesome packages that I do use won't work.
-- NPM ERROR NOTE: I get the following error from npm: "npm WARN ajv-keywords@3.1.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself." Digging in to this a bit guggests it's not an issue for me unless I'm every trying to use ajv directly, but keeping note around.
+- NPM ERROR NOTE: I get the following error from npm: "npm WARN ajv-keywords@3.1.0 requires a peer of ajv@^6.0.0 but none is installed. You must install peer dependencies yourself." Digging in to this a bit suggests it's not an issue for me unless I'm every trying to use ajv directly, but keeping note around.
