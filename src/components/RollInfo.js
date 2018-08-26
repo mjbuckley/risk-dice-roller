@@ -4,7 +4,7 @@ import ErrorMessages from '../containers/ErrorMessages.js';
 
 // The form that collects the roll information from the user.
 class RollInfo extends Component {
-  constructor(){
+  constructor() {
     super();
     this.topNode = null;
     this.bottomNode = null;

@@ -106,6 +106,12 @@ I added a number of simple tests. They will catch many errors, but there is not 
 
 
 
+### Scroll To Top
+
+React Router does not automatically scroll new routes to the top of the page. To fix this, I wrap every route in a ScrollToTop component that compares current location to previous location on update and scrolls to the top as needed.
+
+
+
 ### Running Site Locally
 
 Running the site locally using ```npm start``` works fine. However, running the built site locally using serve has issues. To simulate how GitHub pages works, you would run ```serve build``` (note that CRA user guide says ```serve -s build```, but this is to simulate servers that are able to redirect all requests to index.html, but ghpages doesn't, hence the dropped -s). However, because GitHub serves from a subdirectory, the paths for all the cs and js is prefixed with that url and therefore they don't load properly when running build locally. There is probably a setting in serve to get around this, but just noting to be aware of. Also, you can always temporarily remove the homepage section from package.json and everything works fine.
@@ -144,6 +150,7 @@ There are good instructions on deploying to GitHub pages in the CRA user guide [
 ### Other Notes
 
 - I'm putting all css in App.css. I've only imported it in App.js, but since Root.js imports App, the css is available everywhere. However, if I ever used code splitting this would be a problem. I'm not doing code splitting because the site is so small, but maybe make a note of this in notes (and don't use this pattern on larger apps).
+- The ScrollToTop component only imports Component and not React. This is unusual but I believe correct based on what it does. However, keep this in mind in case I run across and errors.
 - Consider changing way I have reset links set up. They work but you cannot get to them with the tab button.
 - A few very odd inputs (such as -3 attack armies and -1 attack rolls) can result in some slightly confusing (but not incorrect) error notices. I'm ok with this because they are very unlikely to happen without someone trying to break things, plus the error notices aren't wrong, just not super clear. Trying to have perfect notices for everything would make the error section too confusing. Better to have good clear notices for 99% of the cases.
 - I removed the max option from the attackArmies and defendArmies inputs because it sort of overrode my own error checking. On submit it would scroll to the top, but it would use the browser based notification that the number was too high but not show my error notices. There might be a way around this, but I prefer my error notices. Additionally, if there were previous results, it kept those around, which is confusing.
