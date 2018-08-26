@@ -152,6 +152,7 @@ form {
   color: #7e57c2;
 }
 
+/* border and padding are to override browser defaults, which were causing problems in Safari */
 .form-button {
   background-color: #7e57c2;
   font-size: 20px;
@@ -161,6 +162,8 @@ form {
   width: 120px;
   height: 50px;
   cursor: pointer;
+  border: 0px;
+  padding: 0px;
 }
 
 .form-span {
