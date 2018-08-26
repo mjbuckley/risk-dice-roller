@@ -102,6 +102,7 @@ I added a number of simple tests. They will catch many errors, but there is not 
 - Current mobile styling is fine but could be improved.
 - Not sure if I like the spot that the app scrolls to when there are results. If the results are long enough then it isn't obvious to the user that they are still on the same page as the form. Maybe scroll somewhere else or at least give a visual clue that they are on the same page.
 - Perhaps add more to the about page.
+- In Safari you can't tab to the "Roll Dice" button (but tabbing to all form entires works). A quick check suggests that this is a Safari issue that needs to be changed in the Safari preferences, but make sure I'm not missing something.
 
 
 

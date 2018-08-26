@@ -22,7 +22,7 @@ const About = () => {
 
         <h3>About Me</h3>
 
-        <p>My name is Michael Buckley, and I’m a web developer. I built this site using React and Redux, and the code is available to view on my GitHub account in the <a href="https://www.github.com/mjbukley/risk-dice-roller">risk-dice-roller</a> repository. While you're there, take a look at my <a href="https://github.com/mjbuckley">GitHub profile</a> to see some of my other projects. If you would like to get in touch with me about this site or about your web development needs, you can reach me at <span className="About-email">contactmichaelbuckley@gmail.com</span>.</p>
+        <p>My name is Michael Buckley, and I’m a web developer. I built this site using React and Redux, and the code is available to view on my GitHub account in the <a href="https://www.github.com/mjbuckley/risk-dice-roller">risk-dice-roller</a> repository. While you're there, take a look at my <a href="https://github.com/mjbuckley">GitHub profile</a> to see some of my other projects. If you would like to get in touch with me about this site or about your web development needs, you can reach me at <span className="About-email">contactmichaelbuckley@gmail.com</span>.</p>
       </div>
     </div>
   );
