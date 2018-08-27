@@ -147,6 +147,12 @@ There are good instructions on deploying to GitHub pages in the CRA user guide [
 
 
 
+### Polyfills
+
+I have added pollyfills for isInteger and array.find because IE 11 does not have them and the Babel settings do not transpile them into something IE 11 can use. The pollyfills comes from the core-js node package. This whole package is installed, but only the two pollyfills are actually imported (into the index.js file). If I ever need to install more pollyfills it would probably make sense to create a separate pollyfill.js file where they are imported and then import that into index.js, but this is a fine approach for now.
+
+
+
 ### Other Notes
 
 - I'm putting all css in App.css. I've only imported it in App.js, but since Root.js imports App, the css is available everywhere. However, if I ever used code splitting this would be a problem. I'm not doing code splitting because the site is so small, but maybe make a note of this in notes (and don't use this pattern on larger apps).
