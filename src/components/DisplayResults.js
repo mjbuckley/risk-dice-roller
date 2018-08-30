@@ -39,7 +39,7 @@ const DisplayResults = (props) => {
             <th>Attack Rolls</th>
             <th>Defense Rolls</th>
             <th>Attack Armies</th>
-            <th>Defeding Armies</th>
+            <th>Defending Armies</th>
           </tr>
         </thead>
         <tbody>

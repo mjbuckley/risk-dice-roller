@@ -112,7 +112,7 @@ class RollInfo extends Component {
           <ErrorMessage errors={this.props.errors} name="defendRollNum" />
           <label className='form-label'>
             Number of dice to roll <br />
-            <span className='form-span'>1-2, and cannot be greater than the number of defeding armies</span>
+            <span className='form-span'>1-2, and cannot be greater than the number of defending armies</span>
             <input
               className='form-input'
               name="defendRollNum"
