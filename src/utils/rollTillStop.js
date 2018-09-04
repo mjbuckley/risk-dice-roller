@@ -31,7 +31,7 @@ const rollTillStop = (rollInfo) => {
 
   // Add current info to history before it is updated with new roll info
   let newHistoryObj = {
-    'attackArmies':rollInfo.attackArmies,
+    'attackArmies': rollInfo.attackArmies,
     'defendArmies': rollInfo.defendArmies,
     ...rollInfo.lastRoll
   };
@@ -57,7 +57,7 @@ const rollTillStop = (rollInfo) => {
     // Add roll results to history (normally done at start of function, but doing here since we are
     // returning now).
     let latestHistory = {
-      'attackArmies':rollInfo.attackArmies,
+      'attackArmies': rollInfo.attackArmies,
       'defendArmies': rollInfo.defendArmies,
       ...rollInfo.lastRoll
     };

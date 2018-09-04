@@ -68,14 +68,25 @@ const validateSubmission = (rollInfo) => {
         errors.push(getErrorDescripion["defendRollNum"]);
   };
 
-  // If used, stopNum must be 1 or greater and less than the current number of attack armies.
-  if (rollInfo["stopNum"] && (rollInfo["stopNum"] < 1 || rollInfo["stopNum"] >= rollInfo["attackArmies"])) {
+  /**
+   * If used, stopNum must be 1 or greater and less than the current number of attack armies. Note
+   * that I cannot just check if (rollInfo["stopNum"]  && ...) because the user could have entered 0
+   * and that would result in the if statement immediately evaluating to false when in fact it
+   * should be true and return an error.
+   */
+  if ( (rollInfo["stopNum"] !== '') && (rollInfo["stopNum"] < 1 || rollInfo["stopNum"] >= rollInfo["attackArmies"]) ) {
     errors.push(getErrorDescripion["stopNum"]);
   };
 
-  // If used, stopDifferential must be less than the current differential.
+  /**
+   * If used, stopDifferential must be less than the current differential. Note that I cannot
+   * just check if (rollInfo["stopDifferential"]  && ...) because 0 is a valid option for
+   * stopDifferential, which would result in the if statement evaluating to false when it is possible
+   * that it shouldn't. Also, even though it is optional, I don't need to wory about the existence
+   * of the stopDifferential value because the convertSubmission function has already handled that.
+   */
   let currentDiff = rollInfo["attackArmies"] - rollInfo["defendArmies"];
-  if (rollInfo["stopDifferential"] && rollInfo["stopDifferential"] >= currentDiff) {
+  if ( (rollInfo["stopDifferential"] !== '') && rollInfo["stopDifferential"] >= currentDiff) {
     errors.push(getErrorDescripion["stopDifferential"]);
   };
 

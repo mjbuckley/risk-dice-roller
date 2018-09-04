@@ -8,6 +8,10 @@ it('adjusts for stopDifferential', () => {
   expect(getAttackRollNum(10, 3, 10, '', -1)).toEqual(1);
 });
 
+it('handles 0 as a stopDifferential', () => {
+  expect(getAttackRollNum(10, 3, 9, '', 0)).toEqual(1);
+});
+
 it('adjusts for game rules', () => {
   expect(getAttackRollNum(2, 3, 10, '', '')).toEqual(1);
 });

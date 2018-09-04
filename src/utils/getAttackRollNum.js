@@ -10,8 +10,14 @@ const getAttackRollNum = (attackArmies, orignalAttackRollNum, defendArmies, stop
     maxRollNums.push(attackArmies - stopNum);
   }
 
-  // Add to array the max roll num that can't result in going below stop differential.
-  if (stopDifferential) {
+  /**
+   * Add to array the max roll num that can't result in going below stop differential. Note that I
+   * cannot just check if (stopDifferential) because 0 is a valid stopDifferential and that value
+   * would incorrectly lead the conditional to being false. I don't need to do this with stopNum
+   * above because there 0 is not valid and would have returned an error and not proceeded with the
+   * roll.
+   */
+  if (stopDifferential !== '') {
     let currentDifferential = attackArmies - defendArmies;
     maxRollNums.push(currentDifferential - stopDifferential);
   }
