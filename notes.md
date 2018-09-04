@@ -98,6 +98,7 @@ I added a number of simple tests. They will catch many errors, but there is not 
 
 ### Future Enhancements
 
+- For the roll form inputs I specify a type="number". This is useful because on most mobile devices it brings up a numeric keypad. However, different browsers handle things differently, and there are some weird quirks. For example, chrome won't allow non numbers to be entered, but it will allow decimals (it shouldn't). If a decimal is entered, it is my error checking that catches it. Mobile Safari allows anything to be entered, but if the form is submitted and anything is not an integer, then the browser gives an error to the user and my errors never get displayed. I'm sure it's different in other places. I think the benefits are worth the problems, but keep this in mind and reconsider in the future and consider other options. I don't care so much what browsers allow people to enter, but I want them to get my errors, not the browsers.
 - I should probably add back a Web App Manifest (manifest.json). I removed it because I thought it was only needed when using service workers and a more fully implemented progressive web app setup, but it is also useful in other cases, like saving site to a cell home screen.
 - Current mobile styling is fine but could be improved.
 - Not sure if I like the spot that the app scrolls to when there are results. If the results are long enough then it isn't obvious to the user that they are still on the same page as the form. Maybe scroll somewhere else or at least give a visual clue that they are on the same page.
