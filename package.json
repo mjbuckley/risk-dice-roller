@@ -10,7 +10,7 @@
     "core-js": "^2.5.7",
     "gh-pages": "^1.2.0",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "16.4.2",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
